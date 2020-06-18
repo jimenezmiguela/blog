@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
   resources :posts
+    resources :comments
   # get /pages path
   get '/pages', to: 'pages#index'  # For details on the DSL available within this file,
   post '/pages', to: 'pages#create'
