@@ -1,4 +1,5 @@
  Rails.application.routes.draw do
+  resources :customers
   resources :posts
     resources :comments
   # get /pages path
