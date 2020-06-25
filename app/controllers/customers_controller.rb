@@ -28,12 +28,12 @@ class CustomersController < ApplicationController
   def create
     # Code must check whether the @customer.save operation succeeded.  If it doesn't, the user does not know what happened.  The save operation may fail if the user didn't enter a required parameter, or if validations fail for the record being created.  So that is the reason for the if statement.  the save operation returns true if the save worked, and false if it didn't, and if it fails the errors are set
 
-    def create
    @customer = Customer.new(customer_params)
    if @customer.save
      flash.notice = "The customer record was created successfully."
      redirect_to @customer
    else
+     #byebug
      flash.now.alert = @customer.errors.full_messages.to_sentence
      render :new
    end
@@ -56,11 +56,11 @@ class CustomersController < ApplicationController
 #       end
 #     end
 
-  end
+
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
-  def update
+
 
     def update
       if @customer.update(customer_params)
@@ -70,7 +70,7 @@ class CustomersController < ApplicationController
         flash.now.alert = @customer.errors.full_messages.to_sentence
         render :edit
       end
-    end
+
 
     # @customer.update(customer_params)
     # flash.notice = "The customer record was updated successfully."
