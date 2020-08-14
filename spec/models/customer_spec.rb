@@ -36,3 +36,13 @@ RSpec.describe Customer, type: :model do
     expect(subject.full_name).to eq("Jack Smith")
   end
 end
+
+# Below shouldn't be here:
+# That is request testing, and you don't put request testing in the models spec
+# describe "get customers_path" do
+#  it "renders the index view" do
+# FactoryBot.create_list(:customer, 10)
+# get customers_path
+# expect(response.status).to eq(200)
+# end
+# end

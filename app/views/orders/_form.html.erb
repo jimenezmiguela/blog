@@ -1,0 +1,39 @@
+<%# Form_for method within an output ERB tag to set up an HTML form based on this empty object (@order) %>
+<%# Provide a block to form_for. The block should take a single parameter that holds the HTML form object %>
+<%= form_for(order) do |f| %>
+ <% if order.errors.any? %>
+ <div id="error_explanation">
+   <h2><%= pluralize(order.errors.count, "error") %> prohibited this order record from being saved:</h2>
+   <ul>
+     <% order.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %>
+   </ul>
+ </div>
+ <% end %>
+
+<!-- <%= f.collection_select :customer_id, Customer.all, :id, :full_name %>
+<%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %> -->
+
+<div class="field">
+  <%# form_for block, output a label for the name field %>
+  <%= f.label :product_name %>
+  <%= f.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%# form_for block, output a label for the name field %>
+    <%= f.label :product_count %>
+    <%= f.number_field :product_count %>
+    </div>
+
+<div class="field">
+  <%= f.label :customer_id %>
+  <%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

@@ -1,6 +1,6 @@
 <%# Form_for method within an output ERB tag to set up an HTML form based on this empty object (@page) %>
 <%# Provide a block to form_for. The block should take a single parameter that holds the HTML form object %>
-<%= form_for(@page) do |f| %>
+<%= form_for(page) do |f| %>
 <div class="field">
   <%# form_for block, output a label for the name field %>
   <%= f.label :title %>

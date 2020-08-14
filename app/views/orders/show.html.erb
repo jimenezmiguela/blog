@@ -1,0 +1,7 @@
+<h1><%= @order.product_name %></h1>
+<p>
+<%= @order.product_count %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %>
+<%= link_to 'Delete', @order, method: :delete %>

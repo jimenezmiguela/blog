@@ -35,6 +35,7 @@ end
 def destroy
   @page = Page.find(params[:id])
   @page.destroy
+  redirect_to pages_path
 end
 
   private
@@ -42,4 +43,4 @@ end
     def page_params
       params.require(:page).permit(:title, :body, :slug)
     end
-end
+  end
